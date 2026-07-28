@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     )
 
     # API Configuration
-    PROJECT_NAME: str = "FastAPI Authentication API"
+    PROJECT_NAME: str = "Anonymous"
     DEBUG: bool = True
     API_V1_STR: str = "/api/v1"
 
