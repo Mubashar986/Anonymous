@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-ink: #0c0a09;
+  --color-canvas: #171412;
+  --color-canvas-raised: #1f1c19;
+  --color-canvas-elevated: #292521;
+  --color-border-subtle: #2a2522;
+  --color-border-default: #35302b;
+  --color-border-focus: #b8944a;
+
+  --color-gold: #b8944a;
+  --color-gold-dim: #8a6d35;
+  --color-gold-muted: rgba(184, 148, 74, 0.12);
+  --color-gold-glow: rgba(184, 148, 74, 0.06);
+
+  --color-wine: #6e2c3a;
+  --color-wine-muted: rgba(110, 44, 58, 0.15);
+  --color-wine-bright: #8b3a4a;
+
+  --color-cream: #f2ebe3;
+  --color-cream-muted: #d6cdc1;
+  --color-cream-dim: #9c9188;
+  --color-cream-faint: #5c544e;
+
+  --color-sage: #4a7c59;
+  --color-sage-muted: rgba(74, 124, 89, 0.15);
+  --color-crimson: #8b3a3a;
+  --color-crimson-muted: rgba(139, 58, 58, 0.12);
+
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Typography */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Scrollbar — warm, minimal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cream-faint);
+}
+
+/* Selection */
+::selection {
+  background: rgba(184, 148, 74, 0.25);
+  color: var(--color-cream);
+}
+
+/* Quiet transitions */
+.transition-quiet {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gold accent line */
+.accent-line {
+  width: 32px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* Card surface */
+.surface {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.surface-raised {
+  background-color: var(--color-canvas-raised);
+  border: 1px solid var(--color-border-subtle);
+}
+
+/* Focus ring */
+.focus-gold:focus-visible {
+  outline: none;
+  ring: 1px;
+  ring-color: var(--color-gold);
+  ring-offset: 1px;
+  ring-offset-color: var(--color-ink);
+}
+
+/* Subtle glow for VIP elements */
+.glow-gold {
+  box-shadow: 0 0 40px -12px rgba(184, 148, 74, 0.15);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
