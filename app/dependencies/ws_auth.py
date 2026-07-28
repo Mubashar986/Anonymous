@@ -6,6 +6,7 @@ import logging
 import uuid
 from typing import Optional
 from fastapi import Depends, Query, WebSocket, WebSocketException
+from sqlalchemy.ext.asyncio import AsyncSession
 import jwt
 
 from app.core.constants import WSCloseCode
